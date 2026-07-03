@@ -1,0 +1,32 @@
+---
+- name: Configure Bastion Host
+  hosts: bastion
+  become: yes
+  tasks:
+    - name: Swap curl-minimal with full curl
+      shell: dnf swap -y curl-minimal curl
+    
+    - name: Update all packages to the latest version
+      dnf:
+        name: "*"
+        state: latest
+
+    - name: Install required packages
+      dnf:
+        name:
+          - git
+          - vim
+          - wget
+          - curl
+        state: present
+
+    - name: Install Nginx
+      dnf:
+        name: nginx
+        state: present
+
+    - name: Start and enable Nginx service
+      service:
+        name: nginx
+        state: started
+        enabled: yes
