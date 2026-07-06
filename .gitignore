@@ -1,0 +1,49 @@
+# Terraform working directory
+.terraform/
+
+# Terraform state files
+*.tfstate
+*.tfstate.*
+
+# Terraform plan files
+*.tfplan
+*.plan
+
+# Terraform variable files (may contain secrets)
+*.tfvars
+*.tfvars.json
+*.auto.tfvars
+
+# Override files
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+
+# CLI configuration
+.terraformrc
+terraform.rc
+
+# Crash logs
+crash.log
+crash.*.log
+
+# Keep .terraform.lock.hcl tracked
+# (Recommended by HashiCorp)
+
+# Sensitive files
+*.pem
+*.key
+*.p12
+*.pfx
+
+# Windows metadata files
+*:Zone.Identifier
+
+# IDE files
+.vscode/
+.idea/
+
+# OS files
+.DS_Store
+Thumbs.db
