@@ -206,7 +206,7 @@ resource "aws_route_table_association" "private_2" {
 resource "aws_security_group" "alb_sg" {
   name        = "${var.project_name}-alb-sg"
   description = "Security group for the application load balancer"
-  vpc_id      = 
+  vpc_id      = aws_vpc.main.id
 
   ingress {
     description = "HTTP"
@@ -239,7 +239,7 @@ resource "aws_security_group" "alb_sg" {
 resource "aws_security_group" "ec2_sg" {
   name        = "${var.project_name}-ec2-sg"
   description = "Security group for the EC2 instances"
-  vpc_id      = var.vpc_id
+  vpc_id      = aws_vpc.main.id
 
   ingress {
     description     = "Application traffic"
@@ -264,7 +264,7 @@ resource "aws_security_group" "ec2_sg" {
 resource "aws_security_group" "rds_sg" {
   name        = "${var.project_name}-rds-sg"
   description = "Security group for the RDS database"
-  vpc_id      = .vpc_id
+  vpc_id      = aws_vpc.main.id
 
   ingress {
     description     = "MySQL"
